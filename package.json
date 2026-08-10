@@ -1,0 +1,19 @@
+{
+  "name": "javascript-demo",
+  "version": "1.0.0",
+  "description": "A simple JavaScript demo project",
+  "main": "demo.js",
+  "scripts": {
+    "start": "node demo.js"
+  },
+  "keywords": [
+    "javascript",
+    "demo"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^26.2.0"
+  }
+}
