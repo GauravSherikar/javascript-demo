@@ -27,3 +27,25 @@ npm start
  - tests-examples/
  - example.*
  - *.log
+
+ ** Push chnages to remote**
+ 1.Git Commands
+  - `git branch -M main`
+  - `git remote add origin <remote-url>`
+  - `git remote -v`
+  - `git push -u origin main`
+2.Issue
+  - `git config --list`
+  - `git push -f origin main` -> force push
+
+3.Remenmber this - `ACP` - `Add commit push`
+
+**In this session**
+
+**writing first test**
+1.Target web app:`https://katalon-demo-cura.herokuapp.com/`
+2.steps
+   1. Go to the home page
+   2. Assert if the little is correct
+   3. Assert header text
+3.Done! 
