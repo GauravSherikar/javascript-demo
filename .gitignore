@@ -12,4 +12,3 @@ node_modules/
 allure-results/
 tests-examples/
 example.*
-*.log
