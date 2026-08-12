@@ -49,3 +49,18 @@ npm start
    2. Assert if the little is correct
    3. Assert header text
 3.Done! 
+
+**Option 2 - CLI**
+- Help -> `npx playwright codegen --help`
+- CLI basic command - `npx playwright codegen`
+- with URL `npx playwright codegen https://katalon-demo-cura.herokuapp.com/`
+
+**Deep dive into Playwrites Locators**
+
+// `page.getBy*()` and `page.locator()` methods returns the `locator` object
+// The above methods not to be `awaited`
+// The type of locator is an `object`
+// Locators are LAZY until an action is fired on them
+
+**Interacting with web Elements**
+- codegen CLI: `npx playwright codegen https://katalon-demo-cura.herokuapp.com/`
