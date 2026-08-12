@@ -1,4 +1,7 @@
+/// <reference types="node" />
 import { defineConfig, devices } from '@playwright/test';
+// Removed unused import that caused: "index.d.ts' is not a module" error
+// import type { ProcessEnv } from 'node';
 
 /**
  * Read environment variables from file.
@@ -31,7 +34,7 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
     ignoreHTTPSErrors: true,
-    navigationTimeout: 20_000, // 20 seconds
+    navigationTimeout: 30_000, // 30 seconds
   },
 
   /* Configure projects for major browsers */
