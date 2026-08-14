@@ -11,14 +11,14 @@ test("should load homepage with correct title", async ({ page }) => {
   ).toHaveText("CURA Healthcare Service");
 });
 
-test("Should do something", { tag: "@smoke" }, async ({ page }) => {
+test("Should do something", { tag: "@smoke" }, async ({ page }, testInfo) => {
   await page.goto("https://katalon-demo-cura.herokuapp.com/"); // go to the app first
   await page
     .locator("//h1[normalize-space()='CURA Healthcare Service']")
     .click();
 });
 
-test.only("Should demo locators", async ({ page }) => {
+test("Should demo locators", async ({ page }) => {
   // ✅ `page.getBy*()` and `page.locator()` methods returns the `locator` object
   // ✅ The above methods not to be `awaited`
   // ✅ The type of locator is an `object`
@@ -39,3 +39,12 @@ test.only("Should demo locators", async ({ page }) => {
   //codegen locator and click on it
 });
 
+test("Should demo config file" , async ({ page }, testInfo) => {
+  console.log(`>> Config at run-time: ${JSON.stringify(testInfo.config)}`);
+
+});
+
+test.only("Should demo fixtures" , async ({ page, browserName }, testInfo) => {
+  console.log(`>> The test run on ${browserName}`);
+
+});

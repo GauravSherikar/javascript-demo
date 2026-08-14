@@ -64,3 +64,50 @@ npm start
 
 **Interacting with web Elements**
 - codegen CLI: `npx playwright codegen https://katalon-demo-cura.herokuapp.com/`
+
+**Allure Setup**
+1.Check if allure is installed globally - > `allure --version`, if present
+2.Install allure commandline globally - >`npm install -g allure-commandline`
+3.Install 'Allure' Reporter for project level - > `npm install -D allure-playwright`
+4.Add it is the config file
+```ts
+reporter: [
+ [ `html`]                       //Default playwright HTML reporter
+ [`allure-playwright`]           //Allure reporter
+
+],
+```
+6.Run a test and confirm that the new folder is created `allure-results`
+7.Spin up the report - > `allure serve`
+8.Done! 
+
+**Allure Advanced Setup**
+fore more detailed reporting, you can configure additional options:
+
+```ts
+reporter:[
+  [
+  'html',
+  {
+    open: 'never',//don't auto-open HTML report
+  },
+],
+[
+  'allure-playwright',
+  {
+    details:true,
+    suiteTitle:true,
+    environmentInfo:{
+      name:'TEST',
+      appName: "CURA",
+      Release: 'Release 1.1',
+      node_version: process.version
+    },
+  },
+],
+]
+
+**Screenshot**
+1.Config options - > `use` - >`screenshot`
+2.At test scope level
+

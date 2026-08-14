@@ -1,12 +1,17 @@
 {
-  "name": "javascript-demo",
+  "name": "Playwright-E2E-Test",
   "version": "1.0.0",
-  "description": "A simple JavaScript demo project",
+  "description": "Playwright E2E Test with AI capabilities incl MCP",
   "main": "demo.js",
   "scripts": {
+    "demo:tag": "npx playwright test --grep @smoke --headed",
+    "pw-basic-cap": "npx playwright test tests/demo/pw.basic.cap.make-aptmnt.spec.ts --headed",
+    "debug:trace": "npx playwright test tests/demo/debug.make-aptmnt.spec.ts --trace on",
+    "debug:cli": "PWDEBUG=1 npx playwright test tests/demo/debug.make-aptmnt.spec.ts --ui --headed",
+    "debug:ui": "npx playwright test tests/demo/debug.make-aptmnt.spec.ts --ui --headed",
+    "debug": "npx playwright test tests/demo/debug.make-aptmnt.spec.ts --headed",
     "make-apt": "npx playwright test tests/functional/make-aptmnt.spec.ts --headed",
     "login": "npx playwright test tests/functional/login.spec.ts --headed",
-
     "demo": "npx playwright test tests/demo/mytest.spec.ts --headed"
   },
   "keywords": [
@@ -18,6 +23,7 @@
   "license": "MIT",
   "devDependencies": {
     "@playwright/test": "^1.62.1",
-    "@types/node": "^26.2.0"
+    "@types/node": "^26.2.0",
+    "allure-playwright": "^3.10.2"
   }
 }

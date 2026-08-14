@@ -37,8 +37,8 @@ test.describe("Make the Appointment", () => {
     await page.getByRole("radio", { name: "Medicaid" }).check();
     //Date Input box
     await page.getByRole("textbox", { name: "Visit Date (Required)" }).click();
-    await page.getByRole("textbox", { name: "Visit Date (Required)" }).fill("13/08/2025");
-    await page.getByRole("textbox", { name: "Visit Date (Required)" }).press("Enter");
+    await page.getByRole("textbox", { name: "Visit Date (Required)" }).fill("05/10/2025");
+   // await page.getByRole("textbox", { name: "Visit Date (Required)" }).press("Enter");
     //Multi-line comments input box
     await page.getByRole("textbox", { name: "Comment" }).click();
     await page.getByRole("textbox", { name: "Comment" }).fill("This is multi-line comments capture by playwright codegen");
@@ -46,7 +46,7 @@ test.describe("Make the Appointment", () => {
     await page.getByRole("button", { name: "Book Appointment" }).click();
     //Assertion
     await expect(page.locator("h2")).toContainText("Appointment Confirmation");
-    await expect(page.getByRole("link", { name: "Go to Homepage" })).toBeVisible();
+    await page.getByRole("link", { name: "Go to Homepage" }).click();
   });
   //More tests can be added here for different scenarios like making appointment with default values, invalid values, etc.
 });

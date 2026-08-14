@@ -1,5 +1,7 @@
 import { test, expect } from '@playwright/test';
 
+//using codegen to generate the code
+
 test('test', async ({ page }) => {
   //1.launch URL
   await page.goto('https://katalon-demo-cura.herokuapp.com/');

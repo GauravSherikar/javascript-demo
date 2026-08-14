@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 
-test.describe("Make the Appointment", () => {
-  test.beforeEach("Login with the valid credetials", async ({ page }) => {
+test.describe("Make the Appointment",{annotation : {type: "Story", description: "JIRA-1234: Make Appointment feature"}}, () => {
+  test.beforeEach("Login with the valid credetials", async ({ page },testInfo) => {
     //1.launch URL and assert title and header text
     await page.goto("https://katalon-demo-cura.herokuapp.com/");
     await expect(page).toHaveTitle("CURA Healthcare Service");
@@ -20,6 +20,16 @@ test.describe("Make the Appointment", () => {
     await page.getByLabel("Password").fill("ThisIsNotAPassword");
     await page.getByRole("button", { name: "Login" }).click();
 
+    /*
+    Add custom screenshot project scoop level
+    @ todo add this as a helper function    
+    */
+   let fullPageLoginScreenShot = await page.screenshot({ fullPage: true });
+   await testInfo.attach("login page", {
+     body: fullPageLoginScreenShot,
+     contentType: "image/png",
+   }); 
+   
     //Assert a text
     await expect(page.locator("//a[@id='btn-make-appointment']")).toContainText(
       "Make Appointment",
@@ -28,7 +38,13 @@ test.describe("Make the Appointment", () => {
 
   //test goes here
 
-  test("Should make an appointment with non-default values", async ({ page }) => {
+  test("Should make an appointment with non-default values",
+    {annotation:{type:"Bug",description:"Defect:1234 - Does not work in Firefox"}},
+     async ({ page, browserName }) => {
+      //Skip this test for Firefox browser
+      test.skip(browserName === "firefox", "Open bug ID:1234");
+
+
     //Dropdown
     await page.getByLabel("Facility").selectOption("Hongkong CURA Healthcare Center");
     //Checkbox
