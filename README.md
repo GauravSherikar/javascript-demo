@@ -111,3 +111,38 @@ reporter:[
 1.Config options - > `use` - >`screenshot`
 2.At test scope level
 
+
+**Advanced Debugging - pw-API level**
+- set `DEBUG=pw:api` to view the API level logs
+- Other namesspaces exist too, e.g. `pw:browser*, pw:channel*, pw:protocole*.`
+
+**for stable CI testing**
+```ts
+args: [
+"--no-sandbox",
+"--disable-dev-shm-usage"
+"--disable-gpu"
+"--disable-extensions"
+"--disable-background-networking"
+"--no-first-run"
+"--disable-default-apps"
+]
+```
+### For cross-Origin Testing
+```ts
+args[
+  "--disable-web-security",
+  "--disable-features=VizDisplayCompositor",
+  "--allow-running-insecure-content",
+  "--disable-background-networking"
+]
+```
+### For Mobile
+```ts
+args[
+  "--use-mobile-user-agent",
+  "--touch-event=enabled",
+  "--enable-viewport-meta"
+
+
+]
