@@ -8,7 +8,6 @@
     "pw-adv-cap": "DEBUG=pw:api npx playwright test tests/demo/pw.adv.cap.login.spec.ts --headed",
     "demo:tag": "npx playwright test --grep @smoke --headed",
     "pw-basic-cap": "npx playwright test tests/demo/pw.basic.cap.make-aptmnt.spec.ts --headed",
-    
     "debug:trace": "npx playwright test tests/demo/debug.make-aptmnt.spec.ts --trace on",
     "debug:cli": "PWDEBUG=1 npx playwright test tests/demo/debug.make-aptmnt.spec.ts --ui --headed",
     "debug:ui": "npx playwright test tests/demo/debug.make-aptmnt.spec.ts --ui --headed",
@@ -28,5 +27,8 @@
     "@playwright/test": "^1.62.1",
     "@types/node": "^26.2.0",
     "allure-playwright": "^3.10.2"
+  },
+  "dependencies": {
+    "@n8n/chat": "^1.34.4"
   }
 }
